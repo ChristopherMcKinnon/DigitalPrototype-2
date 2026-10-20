@@ -21,9 +21,11 @@ public class PlayerMovement : MonoBehaviour
     private float jumpBufferTimer;
     private bool jumpReleased;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private InputAction moveAction;
     private InputAction jumpAction;
+
+    [SerializeField] private Bomb bombScript;
 
     private readonly ContactPoint2D[] contacts = new ContactPoint2D[8];
     void Awake()
@@ -153,7 +155,6 @@ public class PlayerMovement : MonoBehaviour
                 vel.y = 0f;
             }
         }
-        
 
         rb.linearVelocity = vel;
     }
