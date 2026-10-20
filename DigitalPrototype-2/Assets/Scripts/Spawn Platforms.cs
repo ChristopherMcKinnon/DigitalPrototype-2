@@ -4,6 +4,7 @@ public class SpawnPlatforms : MonoBehaviour
 {
     [SerializeField] private GameObject blockPrefab;
     [SerializeField] private GameObject Player;
+    [SerializeField] private int spawnCount;
     [SerializeField] private int minDistance;
     [SerializeField] private int maxDistance;
     [SerializeField] private int minHeight;
@@ -18,7 +19,7 @@ public class SpawnPlatforms : MonoBehaviour
     }
     void Start()
     {
-        SpawnBlocks(5);
+        SpawnBlocks(spawnCount);
     }
     public void SpawnBlocks(int number)
     {
