@@ -1,17 +1,23 @@
+using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
-
     [SerializeField] private TextMeshProUGUI Score;
     [SerializeField] private GameObject Player;
+    [SerializeField] private TextMeshProUGUI Timer;
     private Vector2 playerPos;
     private int currentScore;
-    private int topScore;
+    public static int topScore;
+    public float timerDuration;
+    private bool isTimer = true;
+    private float timer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        timer = timerDuration;
     }
 
     // Update is called once per frame
@@ -19,11 +25,27 @@ public class GameMaster : MonoBehaviour
     {
         playerPos = Player.transform.position;
         ScoreUpdate();
+        TimerUpdate();
     }
     void ScoreUpdate()
     {
         currentScore = (int)Mathf.Round(playerPos.x);
         if (currentScore > topScore) topScore = currentScore;
         Score.text = "Score: " + topScore.ToString();
+    }
+    void TimerUpdate()
+    {
+        if (isTimer)
+        {
+            timer -= Time.deltaTime;
+            Timer.text = timer.ToString("f1");
+            if (timer <= 0) isTimer = false;
+        }
+        if (!isTimer)
+        {
+            timer = timerDuration;
+            SceneManager.LoadScene("EndScreen");
+            isTimer = true;
+        }
     }
 }
