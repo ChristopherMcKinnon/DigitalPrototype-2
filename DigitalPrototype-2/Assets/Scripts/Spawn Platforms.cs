@@ -3,6 +3,7 @@ using UnityEngine;
 public class SpawnPlatforms : MonoBehaviour
 {
     [SerializeField] private GameObject blockPrefab;
+    [SerializeField] private GameObject bombPrefab;
     [SerializeField] private GameObject Player;
     [SerializeField] private int spawnCount;
     [SerializeField] private int minDistance;
@@ -46,6 +47,12 @@ public class SpawnPlatforms : MonoBehaviour
             GameObject newBlock = Instantiate(blockPrefab, blockDistance, Quaternion.identity);
             newBlock.transform.localScale = blockScale;
             currentBlock = newBlock;
+
+            // Roll a number to decide if a bomb should spawn
+            if (Random.Range(1, 6) == 1)
+            {
+                Instantiate(bombPrefab, blockDistance + new Vector2(Mathf.Round(blockScale.x/2),0), Quaternion.identity);
+            }
         }
     }
 }

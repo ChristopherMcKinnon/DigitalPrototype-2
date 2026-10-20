@@ -15,7 +15,6 @@ public class KillPlayer : MonoBehaviour
     {
         if(col.gameObject == Player)
         {
-            Debug.Log(col.gameObject);
             col.gameObject.transform.position = new Vector2(-5.5f, 0f);
         }
     }

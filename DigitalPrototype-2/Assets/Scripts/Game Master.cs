@@ -4,8 +4,8 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour
 {
 
-    [SerializeField] private TextMeshProUGUI Score;
     [SerializeField] private GameObject Player;
+    [SerializeField] private TextMeshProUGUI Score;
     private Vector2 playerPos;
     private int currentScore;
     private int topScore;
