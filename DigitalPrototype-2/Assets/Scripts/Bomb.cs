@@ -1,10 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
     private GameObject Player;
     [SerializeField] public float blastSpeed;
-    private readonly ContactPoint2D[] contacts = new ContactPoint2D[8];
     private PlayerMovement playerMovement;
     
 
@@ -41,9 +41,26 @@ public class Bomb : MonoBehaviour
             playerMovement.rb.angularVelocity = 0f;
             playerMovement.rb.AddForce(blastForce, ForceMode2D.Impulse);
             */
-
-            playerMovement.rb.linearVelocity += Vector2.up * blastSpeed;
+            Debug.Log(playerMovement.rb.linearVelocity.y);
+            float vely = playerMovement.rb.linearVelocity.y;
+            playerMovement.allowJump = true;
+            //playerMovement.rb.linearVelocity = new Vector2(playerMovement.rb.linearVelocity.x, 0);
+            if (vely > 0)
+            {
+                blastSpeed = 40f;
+            }
+            else if (vely == 0)
+            {
+                blastSpeed = 300f;
+            }
+            else
+            {
+                blastSpeed = 400f;
+            }
+            Debug.Log(blastSpeed);
+            playerMovement.rb.linearVelocity += new Vector2(30f, blastSpeed);
             Destroy(gameObject);
+
         }
 
         /*

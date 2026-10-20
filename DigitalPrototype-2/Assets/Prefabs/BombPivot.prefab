@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070acb4aee8518a42abbc1e0b5e6f59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
-  blastSpeed: 150
+  blastSpeed: 30
 --- !u!61 &783770467792592511
 BoxCollider2D:
   m_ObjectHideFlags: 0

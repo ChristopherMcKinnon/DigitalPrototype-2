@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float airDecel = 40f;
 
     // JUMP PROPERTIES
-    [SerializeField] private bool allowJump = true;
+    public bool allowJump = true;
     [SerializeField] private float jumpSpeed = 14f;
     [SerializeField] private float minJumpSpeed = 9f;
     [SerializeField] private float jumpCutMultiplier = 0.1f;
