@@ -6,6 +6,8 @@ public class Bomb : MonoBehaviour
     private GameObject Player;
     [SerializeField] public float blastSpeed;
     private PlayerMovement playerMovement;
+    private GameObject CameraObj;
+    private Camera Camera;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -13,6 +15,8 @@ public class Bomb : MonoBehaviour
     {
         Player = GameObject.FindWithTag("Player");
         playerMovement = Player.GetComponent<PlayerMovement>();
+        CameraObj = GameObject.FindWithTag("MainCamera");
+        Camera = CameraObj.GetComponent<Camera>();
     }
     // Calculate normal force and check if it points down, if so reverse the y
 
