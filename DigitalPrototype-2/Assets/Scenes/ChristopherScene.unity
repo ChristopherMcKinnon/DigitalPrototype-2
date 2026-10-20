@@ -172,7 +172,7 @@ MonoBehaviour:
   minHeight: -1
   maxHeight: 1
   minScale: 1
-  maxScale: 7
+  maxScale: 4
 --- !u!114 &64074703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   Score: {fileID: 197961277}
   Player: {fileID: 4419190732054694441}
   Timer: {fileID: 590979204}
-  timerDuration: 15
+  timerDuration: 60
 --- !u!1 &197961275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,7 +1096,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!43 &1126928094
+--- !u!43 &1975833773
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1416,7 +1416,7 @@ MonoBehaviour:
     rid: 4590651717979209795
   m_ShadowCastingSource: 2
   m_ShadowMesh:
-    m_Mesh: {fileID: 1126928094}
+    m_Mesh: {fileID: 1975833773}
     m_LocalBounds:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0.44999695, y: 0.44999695, z: 0}
