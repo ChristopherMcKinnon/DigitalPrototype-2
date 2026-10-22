@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     // RUN PROPERTIES
     [SerializeField] private float moveSpeed = 7f;
@@ -30,6 +32,9 @@ public class PlayerMovement : MonoBehaviour
     private readonly ContactPoint2D[] contacts = new ContactPoint2D[8];
     void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+
         rb = GetComponent<Rigidbody2D>();
 
         // Create reference to controls
@@ -157,6 +162,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.linearVelocity = vel;
+
+        // flip the player sprite based on the direction you move
+        float moveInput = moveAction.ReadValue<float>();
+        if (moveInput < 0) spriteRenderer.flipX = true;
+        if (moveInput > 0) spriteRenderer.flipX = false;
+
+        // triggers running animation
+        if (moveInput != 0) animator.SetBool("isMoving", true);
+        else animator.SetBool("isMoving", false);
+
+        // triggers jumping animation
+        if (vel.y > 0) animator.SetBool("isJumping", true);
+        else animator.SetBool("isJumping", false);
+
+        if (vel.y < 0 && !IsGrounded()) animator.SetBool("isFalling", true);
+        else animator.SetBool("isFalling", false);
     }
     private bool IsGrounded()
     {
