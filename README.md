@@ -16,3 +16,4 @@ One where players can compete with each other to see how far they can go, using 
 It is experimental as we are making a platformer that does not have a lot of convoluted mechanics, but still has high reply value. Players will be able to choose how fast they go, but will reward going faster.
 
 # Sources:
+https://fonts.google.com/selection?categoryFilters=Appearance:%2FTheme%2FPixel&preview.script=Latn
