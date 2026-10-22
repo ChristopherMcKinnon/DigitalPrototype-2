@@ -8,6 +8,8 @@ public class Bomb : MonoBehaviour
     private PlayerMovement playerMovement;
     private GameObject CameraObj;
     private Camera Camera;
+
+    [SerializeField] private AudioClip explosion;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -65,6 +67,7 @@ public class Bomb : MonoBehaviour
             playerMovement.rb.linearVelocity += new Vector2(30f, blastSpeed);
             Destroy(gameObject);
 
+            SFXManager.Instance.SFX(explosion, 0.7f, explosion.length);
         }
 
         /*
