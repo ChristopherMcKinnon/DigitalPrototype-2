@@ -1,7 +1,7 @@
 # DigitalPrototype-2
 
 # What are we making?
-We are making a fast-paced platformer that features explosions that bounce you forward, and gives you a score based on how far you can travel in a certain amount of time.
+We are making a fast-paced procedural platformer that features explosions that bounce you forward, and gives you a score based on how far you can travel in a certain amount of time.
 
 ## What question are we trying to answer with our prototype?
 We would like to see if a parkour game with a few basic elements fun to play over and over again.
