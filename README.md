@@ -17,3 +17,4 @@ It is experimental as we are making a platformer that does not have a lot of con
 
 # Sources:
 https://fonts.google.com/selection?categoryFilters=Appearance:%2FTheme%2FPixel&preview.script=Latn
+https://pixabay.com/sound-effects/
