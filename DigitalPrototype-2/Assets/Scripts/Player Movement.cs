@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     private InputAction moveAction;
     private InputAction jumpAction;
+    private InputAction levelReset;
+
+    public static bool reset;
 
     [SerializeField] private Bomb bombScript;
 
@@ -40,33 +44,38 @@ public class PlayerMovement : MonoBehaviour
         // Create reference to controls
         moveAction = new InputAction("Move", InputActionType.Value);
         jumpAction = new InputAction("Jump", InputActionType.Button);
+        levelReset = new InputAction("Restart", InputActionType.Button);
 
         // Map the keybinds for controls
         moveAction.AddCompositeBinding("1DAxis")
             .With("Negative", "<Keyboard>/a")
             .With("Positive", "<Keyboard>/d");
         jumpAction.AddBinding("<Keyboard>/w");
+        levelReset.AddBinding("<keyboard>/r");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        reset = false;
     }
 
     void OnEnable()
     {
         moveAction.Enable();
         jumpAction.Enable();
+        levelReset.Enable();
     }
     void OnDisable()
     {
         moveAction.Disable();
         jumpAction.Disable();
+        levelReset.Disable();
     }
     void OnDestroy()
     {
         moveAction.Dispose();
         jumpAction.Dispose();
+        levelReset.Dispose();
     }
 
     // Update is called once per frame
@@ -95,6 +104,14 @@ public class PlayerMovement : MonoBehaviour
             jumpReleased = true;
         }
 
+        if (SceneManager.GetSceneByBuildIndex(0) != null)
+        {
+            if (levelReset.WasPressedThisFrame())
+            {
+                reset = true;
+                SceneManager.LoadScene(0);
+            }
+        }
     }
     void FixedUpdate()
     {

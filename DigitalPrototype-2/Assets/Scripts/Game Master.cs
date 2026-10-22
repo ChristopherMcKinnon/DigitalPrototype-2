@@ -18,6 +18,11 @@ public class GameMaster : MonoBehaviour
     void Start()
     {
         timer = timerDuration;
+        if (PlayerMovement.reset)
+        {
+            currentScore = 0;
+            topScore = 0;
+        }
     }
 
     // Update is called once per frame
