@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundTracking
   Camera: {fileID: 519420032}
-  bgSpeed: 1
+  bgSpeed: 0.8
   followY: 0
   followX: 1
 --- !u!1 &964629801
@@ -1313,7 +1313,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!43 &1257438138
+--- !u!43 &1395423215
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1673,7 +1673,7 @@ MonoBehaviour:
     rid: 4590651717979209795
   m_ShadowCastingSource: 2
   m_ShadowMesh:
-    m_Mesh: {fileID: 1257438138}
+    m_Mesh: {fileID: 1395423215}
     m_LocalBounds:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0.44999695, y: 0.44999695, z: 0}
