@@ -189,7 +189,7 @@ MonoBehaviour:
   Score: {fileID: 197961277}
   Player: {fileID: 4419190732054694441}
   Timer: {fileID: 590979204}
-  timerDuration: 5
+  timerDuration: 60
 --- !u!1 &197961275
 GameObject:
   m_ObjectHideFlags: 0
