@@ -45,6 +45,7 @@ public class EndScreenLogic : MonoBehaviour
             if (restartCooldown <= 0)
             {
                 restartCooldown = 0;
+                PlayerMovement.reset = true;
                 SceneManager.LoadScene("ChristopherScene");
             }
         }
