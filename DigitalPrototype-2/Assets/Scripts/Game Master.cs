@@ -43,7 +43,7 @@ public class GameMaster : MonoBehaviour
         if (isTimer)
         {
             timer -= Time.deltaTime;
-            Timer.text = timer.ToString("f1");
+            Timer.text = "Time: " + timer.ToString("f1") + "s";
             if (timer <= 0) isTimer = false;
         }
         if (!isTimer)
