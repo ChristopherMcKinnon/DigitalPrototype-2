@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
+    [SerializeField] private AudioClip timerLow;
     [SerializeField] private TextMeshProUGUI Score;
     [SerializeField] private GameObject Player;
     [SerializeField] private TextMeshProUGUI Timer;
+    [SerializeField] private AudioClip bell;
     private Vector2 playerPos;
     private int currentScore;
     public static int topScore;
@@ -23,6 +25,7 @@ public class GameMaster : MonoBehaviour
             currentScore = 0;
             topScore = 0;
         }
+        SFXManager.Instance.SFX(bell, 0.5f, bell.length);
     }
 
     // Update is called once per frame
@@ -44,6 +47,7 @@ public class GameMaster : MonoBehaviour
         {
             timer -= Time.deltaTime;
             Timer.text = "Time: " + timer.ToString("f1") + "s";
+            if (timer < 10 && isTimer) SFXManager.Instance.SFX(timerLow, 1f, timerLow.length);
             if (timer <= 0) isTimer = false;
         }
         if (!isTimer)

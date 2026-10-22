@@ -4,8 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // ASSETS
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip runningSound;
 
     // RUN PROPERTIES
     [SerializeField] private float moveSpeed = 7f;
@@ -190,11 +193,21 @@ public class PlayerMovement : MonoBehaviour
         else animator.SetBool("isMoving", false);
 
         // triggers jumping animation
-        if (vel.y > 0) animator.SetBool("isJumping", true);
+        if (vel.y > 0) 
+        {
+            animator.SetBool("isJumping", true);
+        }
         else animator.SetBool("isJumping", false);
 
         if (vel.y < 0 && !IsGrounded()) animator.SetBool("isFalling", true);
         else animator.SetBool("isFalling", false);
+
+        // sfx
+        if (jumpAction.IsPressed() && IsGrounded()) SFXManager.Instance.SFX(jumpSound, 0.2f, jumpSound.length);
+        /*if (moveAction.IsInProgress())
+        {
+            SFXManager.Instance.SFX(runningSound, 1f, runningSound.length, true);
+        }*/
     }
     private bool IsGrounded()
     {

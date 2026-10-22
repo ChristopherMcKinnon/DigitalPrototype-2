@@ -4,6 +4,7 @@ public class KillPlayer : MonoBehaviour
 {
 
     [SerializeField] private GameObject Player;
+    [SerializeField] private AudioClip death;
 
     private PlayerMovement PlayerMovement;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,6 +17,7 @@ public class KillPlayer : MonoBehaviour
         if(col.gameObject == Player)
         {
             col.gameObject.transform.position = new Vector2(-5.5f, 0f);
+            SFXManager.Instance.SFX(death, 1f, death.length, false);
         }
     }
     // Update is called once per frame

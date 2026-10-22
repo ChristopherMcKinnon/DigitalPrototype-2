@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
   blastSpeed: 30
+  explosion: {fileID: 8300000, guid: 1d39c8c0bb5d1894ba59e92289a8719b, type: 3}
 --- !u!61 &783770467792592511
 BoxCollider2D:
   m_ObjectHideFlags: 0
