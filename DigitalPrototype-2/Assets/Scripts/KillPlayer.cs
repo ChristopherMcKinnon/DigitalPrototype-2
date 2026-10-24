@@ -17,7 +17,7 @@ public class KillPlayer : MonoBehaviour
         if(col.gameObject == Player)
         {
             col.gameObject.transform.position = new Vector2(-5.5f, 0f);
-            SFXManager.Instance.SFX(death, 1f, death.length, false);
+            SFXManager.Instance.SFX(death, 1f, death.length);
         }
     }
     // Update is called once per frame

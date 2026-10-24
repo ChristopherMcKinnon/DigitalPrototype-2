@@ -1349,7 +1349,7 @@ Transform:
   - {fileID: 951380474}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1937682204
+--- !u!43 &1842411435
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1723,7 +1723,7 @@ MonoBehaviour:
     rid: 4590651717979209795
   m_ShadowCastingSource: 2
   m_ShadowMesh:
-    m_Mesh: {fileID: 1937682204}
+    m_Mesh: {fileID: 1842411435}
     m_LocalBounds:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0.44999695, y: 0.44999695, z: 0}

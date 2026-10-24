@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip runningSound;
 
+    private float walkCooldown = 0;
+    private float walkCooldownMax = 0.4f;
+    private bool startWalkCycle = true;
+
     // RUN PROPERTIES
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float groundAccel = 90f;
@@ -204,10 +208,22 @@ public class PlayerMovement : MonoBehaviour
 
         // sfx
         if (jumpAction.IsPressed() && IsGrounded()) SFXManager.Instance.SFX(jumpSound, 0.2f, jumpSound.length);
-        /*if (moveAction.IsInProgress())
+
+        if (moveAction.IsInProgress() && IsGrounded())
         {
-            SFXManager.Instance.SFX(runningSound, 1f, runningSound.length, true);
-        }*/
+            walkCooldown -= Time.deltaTime;
+            if (walkCooldown <= 0)
+            {
+                SFXManager.Instance.SFX(runningSound, 1f, 0.35f, 0.1f);
+                walkCooldown = walkCooldownMax;
+                startWalkCycle = false;
+            }
+        }
+        else if (!moveAction.IsInProgress() && !startWalkCycle || !IsGrounded() && !startWalkCycle)
+        {
+            walkCooldown = walkCooldownMax;
+            startWalkCycle = true;
+        }
     }
     private bool IsGrounded()
     {

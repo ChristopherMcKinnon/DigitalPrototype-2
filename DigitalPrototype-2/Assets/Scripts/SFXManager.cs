@@ -11,21 +11,19 @@ public class SFXManager : MonoBehaviour
         if (Instance == null) Instance = this;
     }
 
-    public void SFX(AudioClip audioClip, float volume, float length, bool loop = false)
+    public void SFX(AudioClip audioClip, float volume, float length, float time = 0f, bool loop = false)
     {
-        if (audioSource == null)
-        {
-            // spawn audio player
-            audioSource = Instantiate(SFXObject);
+        // spawn audio player
+        audioSource = Instantiate(SFXObject);
 
-            // set the settings to specified amounts
-            audioSource.clip = audioClip;
-            audioSource.volume = volume;
-            audioSource.loop = loop;
-            audioSource.Play();
+        // set the settings to specified amounts
+        audioSource.clip = audioClip;
+        audioSource.volume = volume;
+        audioSource.loop = loop;
+        audioSource.time = time;
+        audioSource.PlayOneShot(audioClip); // oneShot lets the clips overlap with others
 
-            // end the clip after the set length
-            if (!loop) Destroy(audioSource.gameObject, length);
-        }
+        // end the clip after the set length
+        if (!loop) Destroy(audioSource.gameObject, length);
     }
 }
