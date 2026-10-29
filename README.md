@@ -1,5 +1,7 @@
 # DigitalPrototype-2
 
+Use "Build 3" folder for the final version
+
 # What are we making?
 We are making a fast-paced procedural platformer that features explosions that bounce you forward, and gives you a score based on how far you can travel in a certain amount of time.
 
