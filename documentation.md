@@ -27,6 +27,7 @@ We changed it to a game where the player would be able to bounce and fly through
 The timer adds much needed pressure, otherwise players would want to take their time getting through the level. Forcing players to act and move quickly through the level. The bombs add movement tech, as players can find ways to maximize their distance with each explosion.
 
 ![](https://cdn.discordapp.com/attachments/1472224430011977781/1565818030414635068/CameraPan.png?ex=6ae6492d&is=6ae4f7ad&hm=29d4d4315fd70ba7bb04e6a10335b6e6262f5fca24f17c742fd516297f160b8f)
+
 We wanted to make it so that the camera would zoom out when the player blasts, so that they can see the rest of the level and where they are going to land, but it was not able to be completed in time.
 
 In the final version, the map was procedurally generated to allow for more replayability. The mechanics that we implemented were fun, and mostly went according to plan. We were not able to add everything we wanted, like the camera zooming, but we still got most of it.
